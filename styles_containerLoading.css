@@ -1,0 +1,564 @@
+/* Container Loading Web Page Styles */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Typography */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #e74c3c;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #3498db;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px 4px 0 0;
+    margin: 0 5px;
+    transition: background 0.3s;
+}
+
+.tab-btn.active {
+    background: white;
+    border-bottom: 2px solid #3498db;
+}
+
+.tab-btn:hover {
+    background: #d5dbdb;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 120px);
+}
+
+.left-panel, .center-panel, .right-panel {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.left-panel {
+    width: 300px;
+    overflow-y: auto;
+}
+
+.center-panel {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.right-panel {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.box-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.box-inputs input {
+    flex: 1;
+}
+
+input[readonly] {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Container Selection Buttons */
+.container-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 4px;
+    border: 2px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.container-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+.container-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Packing Method Buttons */
+.packing-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.packing-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.packing-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+.packing-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.results-section h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2ecc71;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5dade2;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.btn-danger {
+    background-color: #f87b7b;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #da1b06;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
+    background-size: 200% 100%;
+    animation: progress 2s ease-in-out infinite, rainbow 3s linear infinite;
+    width: 0%;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* 3D Canvas */
+#canvas-container {
+    flex: 1;
+    min-height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.view-controls-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(212, 239, 240, 0.6);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+.view-controls-overlay h3 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.view-controls-overlay p {
+    margin: 2px 0;
+}
+
+/* Results Display */
+#results-content {
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    white-space: pre-line;
+}
+
+.step-box {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.step-box:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* Result Boxes - Summary (Blue), Steps (Red), Leftovers (Orange) */
+.summary-box {
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+    font-family: 'Consolas', monospace;
+}
+
+.steps-header-box {
+    border: 2px solid #e74c3c;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    background-color: #fdf2f2;
+    font-family: 'Consolas', monospace;
+    font-weight: bold;
+    text-align: center;
+}
+
+.steps-container-box {
+    border: 2px solid #e74c3c;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    background-color: #fdf2f2;
+    font-family: 'Consolas', monospace;
+}
+
+.leftovers-box {
+    border: 2px solid #f39c12;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    background-color: #fef9e7;
+    font-family: 'Consolas', monospace;
+}
+
+/* Animation Controls */
+.animation-controls {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.animation-controls .btn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.nav-buttons .btn {
+    flex: 1;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* View Controls */
+.view-controls {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+.view-controls p {
+    margin-bottom: 5px;
+}
+
+.view-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.view-buttons .btn {
+    flex: 1;
+    min-width: 60px;
+    padding: 5px 8px;
+    font-size: 11px;
+    margin: 0;
+}
+
+.bale-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.bale-inputs input {
+    flex: 1;
+}
+
+.bale-dimensions {
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.bale-dimensions small {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+/* Batch Calculation Styles */
+#batch-calculation .left-panel {
+    width: 500px;
+}
+
+#batch-calculation .center-panel {
+    width: 500px;
+}
+
+#batch-items-table td {
+    text-align: center;
+}
+
+#batch-items-table input {
+    text-align: center;
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+
+.batch-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.batch-item .box-inputs {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.batch-item .box-inputs input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.remove-item-btn {
+    padding: 6px 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.remove-item-btn:hover {
+    background-color: #c0392b;
+}
+
+.remove-row-btn {
+    background: white;
+    border: 1px solid #ddd;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.remove-row-btn:hover {
+    color: darkred;
+    border-color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-panel, .center-panel, .right-panel {
+        width: 100%;
+    }
+
+    .center-panel {
+        height: 500px;
+    }
+}
