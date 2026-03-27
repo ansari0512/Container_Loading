@@ -1,3 +1,122 @@
-<div class="header-buttons">
-    <button class="save-results">💾 Save Results</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Bin Packing for Container Loading</title>
+    <link rel="stylesheet" href="styles-3d_containerLoading.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="OrbitControls_containerLoading.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>3D Bin Packing for Container Loading - 3D Visual</h1>
+            <div class="header-buttons">
+                <button id="saveBtn" class="save-btn">💾 Save Results</button>
+                <a href="batch-calculation_containerLoading.html" class="mode-btn">Batch Calculation</a>
+                <a href="../index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+        <!-- Left Panel: Inputs -->
+        <div class="left-panel">
+            <h2>Inputs & Controls</h2>
+
+            <div class="input-group">
+                <label>Container Type:</label>
+                <div class="container-buttons">
+                    <button class="container-btn active" data-container="20ft" role="radio" aria-checked="true" tabindex="0"><strong style="font-size: 14px;">20 ft</strong><br>(33.21 CBM)</button>
+                    <button class="container-btn" data-container="40ft" role="radio" aria-checked="false" tabindex="0"><strong style="font-size: 14px;">40 ft</strong><br>(67.74 CBM)</button>
+                    <button class="container-btn" data-container="40fthc" role="radio" aria-checked="false" tabindex="0"><strong style="font-size: 14px;">40 ft HC</strong><br>(76.35 CBM)</button>
+                    <button class="container-btn" data-container="45fthc" role="radio" aria-checked="false" tabindex="0"><strong style="font-size: 14px;">45 ft HC</strong><br>(85.95 CBM)</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Container Dimensions (cm):</label>
+                <div class="box-inputs">
+                    <input type="number" id="container-l" placeholder="Length" value="589.8" readonly>
+                    <input type="number" id="container-w" placeholder="Width" value="235.2" readonly>
+                    <input type="number" id="container-h" placeholder="Height" value="239.4" readonly>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Packing Method:</label>
+                <div class="packing-buttons">
+                    <button class="packing-btn active" data-method="carton" role="radio" aria-checked="true" tabindex="0">Carton</button>
+                    <button class="packing-btn" data-method="bale" role="radio" aria-checked="false" tabindex="0">Bale</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label id="box-dimensions-label">Carton Dimensions (cm):</label>
+                <div class="box-inputs" id="carton-inputs">
+                    <input type="number" id="box-l" placeholder="Length" value="60">
+                    <input type="number" id="box-w" placeholder="Width" value="60">
+                    <input type="number" id="box-h" placeholder="Height" value="29">
+                </div>
+                <div class="box-inputs" id="bale-inputs" style="display: none;">
+                    <input type="number" id="bale-l" placeholder="Length" value="143">
+                    <input type="number" id="bale-w" placeholder="Width" value="15">
+                    <input type="number" id="bale-h" placeholder="Height" value="15">
+                </div>
+            </div>
+
+            <button id="calculate-btn" class="btn btn-primary">Calculate Loading</button>
+
+            <button id="fill-btn" class="btn btn-warning" disabled>Fill Container</button>
+
+            <div class="animation-controls" id="animation-controls">
+                <h3>Animation Controls</h3>
+                <div class="nav-buttons">
+                    <button id="prev-btn" class="btn btn-secondary btn-small">⏮ Previous</button>
+                    <button id="next-btn" class="btn btn-secondary btn-small">⏭ Next</button>
+                </div>
+                <button id="reset-btn" class="btn btn-danger">🔄 Reset</button>
+            </div>
+
+            <div class="progress-container" id="progress-container" style="display: none;">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="progress-text">Calculating...</div>
+            </div>
+
+        </div>
+
+        <!-- Center Panel: Results -->
+        <div class="center-panel">
+            <h2>Loading Results</h2>
+            <div id="results-content">
+                <p>Select container, enter box dimensions, and click Calculate Loading.</p>
+            </div>
+        </div>
+
+        <!-- Right Panel: 3D Canvas -->
+        <div class="right-panel">
+            <h2>3D Visualization</h2>
+            <div id="canvas-container">
+                <div class="view-controls-overlay">
+                    <h3>View Controls</h3>
+                    <p>• Drag to rotate (4 sides only)</p>
+                    <p>• Scroll to zoom</p>
+                    <div class="view-buttons">
+                        <button id="view-top" class="btn btn-secondary">Top</button>
+                        <button id="view-back" class="btn btn-secondary">Back</button>
+                        <button id="view-left" class="btn btn-secondary">Left</button>
+                        <button id="view-right" class="btn btn-secondary">Right</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <script src="solver_containerLoading.js"></script>
+    <script src="visualizer_containerLoading.js"></script>
+    <script src="app-3d_containerLoading.js"></script>
+</body>
+</html>
